@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página principal de la Biblioteca Universitaria.">
+    <meta name="author" content="Equipo 05 - Grupo 4GS122">
+    <title>Inicio | Biblioteca Universitaria</title>
+    <link rel="icon" href="assets/img/logo-biblioteca.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/css/biblioteca-base.css">
+</head>
+<!--
+=========================================================
+DISTRIBUCIÓN DEL TRABAJO - EQUIPO 05
+=========================================================
+
+INTEGRANTE A: Niis Vivar (4GS122-19)
+- Estructura común de las tres páginas.
+- E01: Portada y descripción del servicio.
+
+INTEGRANTE B: Aaron Peñalba (4GS122-14)
+- E02: Catálogo y préstamos.
+- Elaboración de las tablas correspondientes.
+
+INTEGRANTE C: Fernando Bethancourt (4GS122-05)
+- E03: Solicitud de préstamo.
+- Elaboración del formulario correspondiente.
+
+Cada integrante debe trabajar únicamente en las actividades
+que le fueron asignadas.
+
+Mantener el encabezado, los datos del equipo, la navegación,
+el enlace "Saltar al contenido" y el pie de página.
+Cambiar el contenido del <head> según cada página.
+Reemplazar únicamente el contenido específico dentro de <main>.
+
+IMPORTANTE:
+Tengan cuidado al nombrar los archivos HTML y al escribir
+las rutas de los enlaces. Los nombres deben coincidir exactamente
+con los utilizados en la navegación.
+-->
+
+!--
+=========================================================
+PROCEDIMIENTO DE TRABAJO CON GIT Y GITHUB
+=========================================================
+
+Cada integrante debe seguir el mismo procedimiento utilizado
+en las prácticas anteriores:
+
+1. Clonar el repositorio compartido en su computadora.
+2. Crear y trabajar en su propia rama.
+3. Realizar los cambios correspondientes a su actividad.
+4. Guardar los cambios y realizar el commit.
+5. Subir su rama al repositorio de GitHub.
+6. Crear un Pull Request para solicitar la integración
+   de sus cambios en la rama principal.
+
+La integración de los cambios será revisada y aprobada
+por Niis Vivar antes de incorporarlos a la rama main.
+
+NO realizar cambios directamente en la rama main.
+-->
+<body>
+ <a href="#contenido">Saltar al contenido</a>
+ <header>
+    <img src="assets/img/logo-biblioteca.svg" alt="">
+
+    <hgroup>
+        <h1>Biblioteca Universitaria</h1>
+        <p>Tu espacio de conocimiento y aprendizaje</p>
+    </hgroup>
+    <p>
+        Equipo 05 - Grupo 4GS122:
+        4GS122-14 Peñalba Aaron,
+        4GS122-05 Bethancourt-Fernando,
+        4GS122-19 Vivar-Niis.
+    </p>
+</header>
+<nav aria-label="Navegación principal">
+    <ul>
+    <li><a href="index.html">Préstamo a domicilio</a></li>
+    <li><a href="catalogo.html">Catálogo y préstamos</a></li>
+    <li><a href="prestamo.html">Solicitar un préstamo</a></li>
+    </ul>
+</nav>
+
+    <main id="contenido">
+        <section id="servicio">
+    <h2>¿Qué es el préstamo a domicilio?</h2>
+
+    <p>
+        El <dfn>préstamo a domicilio</dfn> es un servicio de la
+        Biblioteca Universitaria que permite a los usuarios
+        autorizados llevar libros fuera de las instalaciones
+        de la biblioteca durante un período determinado.
+    </p>
+
+    <p>
+        Este servicio está disponible para los materiales de la
+        <strong>Colección General</strong>, de acuerdo con las
+        condiciones establecidas en el reglamento bibliotecario.
+    </p>
+</section>
+<section id="ejemplares">
+    <h2>Ejemplares disponibles para préstamo</h2>
+
+    <p>
+        La biblioteca ofrece diferentes materiales de la colección
+        para consulta y préstamo:
+    </p>
+
+    <ul>
+        <li>Libros de literatura y novelas.</li>
+        <li>Libros de ciencias y tecnología.</li>
+        <li>Textos académicos y universitarios.</li>
+        <li>Obras de consulta autorizadas para préstamo.</li>
+    </ul>
+
+    <p>
+        Los ejemplares ( <abbr title="ejemplar">e.</abbr> )
+        están sujetos a disponibilidad y a las condiciones
+        establecidas por la biblioteca.
+    </p>
+</section>
+<section id="renovaciones">
+    <h2>Condiciones para renovar un préstamo</h2>
+
+    <p>
+        Los usuarios pueden solicitar la renovación de un
+        préstamo siempre que cumplan con las condiciones
+        establecidas por la biblioteca:
+    </p>
+<ol>
+    <li>Presentar el material tomado en préstamo en la fecha de vencimiento.</li>
+    <li>Solicitar la renovación en esa misma fecha.</li>
+    <li>La renovación puede concederse por igual plazo, hasta una sola vez, según la disponibilidad del material.</li>
+    <li>No tener el libro atrasado, ya que los préstamos vencidos no tienen derecho a renovación.</li>
+</ol>
+</section>
+<section id="reglamento">
+    <h2>Reglamento del préstamo</h2>
+
+    <p>
+        Según el reglamento de la Biblioteca Universitaria,
+        las renovaciones deben cumplir con las siguientes condiciones:
+    </p>
+
+    <blockquote cite="https://sistemadebibliotecas.utp.ac.pa/reglamento-de-sistema-de-bibliotecas">
+        <p>
+            Toda renovación, deberá hacerse en la fecha de vencimiento,
+            previa presentación del material tomado en préstamo.
+        </p>
+    </blockquote>
+
+    <p>
+        Fuente:
+        <a href="https://sistemadebibliotecas.utp.ac.pa/reglamento-de-sistema-de-bibliotecas"
+           target="_blank"
+           rel="noopener noreferrer">
+            <cite>Reglamento de Servicios Bibliotecarios del Sistema de Bibliotecas</cite>
+        </a>
+    </p>
+</section>
+<aside>
+    <h2>Antes de solicitar un préstamo</h2>
+
+    <p>
+        Te recomendamos consultar primero el catálogo para
+        verificar qué libros están disponibles y conocer
+        sus características antes de solicitar un préstamo.
+    </p>
+
+    <p>
+        <a href="catalogo.html">Consultar el catálogo</a>
+    </p>
+</aside>
+
+    </main>
+    <footer>
+    <address>
+        Biblioteca Universitaria, Ciudad de Panamá, Panamá.
+    </address>
+
+    <p>
+        Última actualización:
+        <time datetime="2026-11-20">20 de noviembre de 2026</time>
+    </p>
+
+    <p>
+        <a href="#">Volver arriba</a>
+    </p>
+
+    <p>
+        Los datos y la información presentados en este sitio son ficticios
+        y tienen fines académicos.
+    </p>
+</footer>
+</body>
+</html>
