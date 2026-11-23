@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; base-uri 'self'; form-action 'self'">
+    <meta name="description" content="Formulario de solicitud de préstamo a domicilio de la Biblioteca Universitaria.">
+    <meta name="author" content="Equipo 05 - Grupo 4GS122">
+    <title>Solicitar un préstamo | Biblioteca Universitaria</title>
+    <link rel="icon" href="assets/img/logo-biblioteca.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="assets/css/biblioteca-base.css">
+</head>
+<!--
+=========================================================
+DISTRIBUCIÓN DEL TRABAJO - EQUIPO 05
+=========================================================
+
+INTEGRANTE A: Niis Vivar (4GS122-19)
+- Estructura común de las tres páginas.
+- E01: Portada y descripción del servicio.
+
+INTEGRANTE B: Aaron Peñalba (4GS122-14)
+- E02: Catálogo y préstamos.
+- Elaboración de las tablas correspondientes.
+
+INTEGRANTE C: Fernando Bethancourt (4GS122-05)
+- E03: Solicitud de préstamo.
+- Elaboración del formulario correspondiente.
+
+Cada integrante debe trabajar únicamente en las actividades
+que le fueron asignadas.
+
+Mantener el encabezado, los datos del equipo, la navegación,
+el enlace "Saltar al contenido" y el pie de página.
+Cambiar el contenido del <head> según cada página.
+Reemplazar únicamente el contenido específico dentro de <main>.
+
+IMPORTANTE:
+Tengan cuidado al nombrar los archivos HTML y al escribir
+las rutas de los enlaces. Los nombres deben coincidir exactamente
+con los utilizados en la navegación.
+-->
+<!--
+=========================================================
+PROCEDIMIENTO DE TRABAJO CON GIT Y GITHUB
+=========================================================
+
+Cada integrante debe seguir el mismo procedimiento utilizado
+en las prácticas anteriores:
+
+1. Clonar el repositorio compartido en su computadora.
+2. Crear y trabajar en su propia rama.
+3. Realizar los cambios correspondientes a su actividad.
+4. Guardar los cambios y realizar el commit.
+5. Subir su rama al repositorio de GitHub.
+6. Crear un Pull Request para solicitar la integración
+   de sus cambios en la rama principal.
+
+La integración de los cambios será revisada y aprobada
+por Niis Vivar antes de incorporarlos a la rama main.
+
+NO realizar cambios directamente en la rama main.
+-->
+<body>
+    <a href="#contenido">Saltar al contenido</a>
+
+    <header>
+        <img src="assets/img/logo-biblioteca.svg" alt="">
+
+        <hgroup>
+            <h1>Biblioteca Universitaria</h1>
+            <p>Tu espacio de conocimiento y aprendizaje</p>
+        </hgroup>
+        <p>
+            Equipo 05 - Grupo 4GS122:
+            4GS122-14 Peñalba Aaron,
+            4GS122-05 Bethancourt-Fernando,
+            4GS122-19 Vivar-Niis.
+        </p>
+    </header>
+
+    <nav aria-label="Navegación principal">
+        <ul>
+            <li><a href="index.html">Préstamo a domicilio</a></li>
+            <li><a href="catalogo.html">Catálogo y préstamos</a></li>
+            <li><a href="prestamo.html">Solicitar un préstamo</a></li>
+        </ul>
+    </nav>
+
+    <main id="contenido">
+        <section id="solicitud-prestamo">
+            <h2>Solicitud de préstamo a domicilio</h2>
+
+            <p id="ayuda-usuario">
+                Todos los campos marcados con * son obligatorios. El código de usuario debe tener 8 dígitos y el correo institucional debe terminar en @utp.ac.pa.
+            </p>
+
+            <form action="/api/prestamos" method="post">
+                <fieldset>
+                    <legend>Datos del usuario</legend>
+
+                    <div>
+                        <label for="nombre">Nombre completo *</label>
+                        <input id="nombre" name="nombre" type="text" required aria-describedby="ayuda-usuario">
+                    </div>
+
+                    <div>
+                        <label for="codigo">Código de usuario *</label>
+                        <input id="codigo" name="codigo" type="text" inputmode="numeric" pattern="[0-9]{8}" title="Debe contener exactamente 8 dígitos" required aria-describedby="ayuda-usuario">
+                    </div>
+
+                    <div>
+                        <label for="correo">Correo institucional *</label>
+                        <input id="correo" name="correo" type="email" pattern="[^@\s]+@utp\.ac\.pa" title="Debe ser un correo institucional @utp.ac.pa" required aria-describedby="ayuda-usuario">
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>El libro</legend>
+
+                    <div>
+                        <label for="titulo">Título *</label>
+                        <input id="titulo" name="titulo" type="text" list="titulos-catalogo" required>
+                        <datalist id="titulos-catalogo">
+                            <option value="Clean Code"></option>
+                            <option value="Eloquent JavaScript"></option>
+                            <option value="HTML and CSS: Design and Build Websites"></option>
+                            <option value="Fundamentos de bases de datos"></option>
+                            <option value="Ingeniería del software"></option>
+                        </datalist>
+                    </div>
+
+                    <fieldset>
+                        <legend>Ejemplar *</legend>
+
+                        <div>
+                            <input id="ej-1" name="ejemplar" type="radio" value="e1" disabled aria-describedby="ayuda-ej1">
+                            <label for="ej-1">e.1</label>
+                        </div>
+
+                        <div>
+                            <input id="ej-2" name="ejemplar" type="radio" value="e2" required>
+                            <label for="ej-2">e.2</label>
+                        </div>
+
+                        <div>
+                            <input id="ej-3" name="ejemplar" type="radio" value="e3">
+                            <label for="ej-3">e.3</label>
+                        </div>
+
+                        <p id="ayuda-ej1">El e.1 no se presta: se reserva para consulta en sala.</p>
+                    </fieldset>
+
+                    <div>
+                        <label for="retiro">Fecha de retiro *</label>
+                        <input id="retiro" name="retiro" type="date" min="2026-11-23" required>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Condiciones</legend>
+
+                    <div>
+                        <input id="sin-adeudos" name="sin_adeudos" type="checkbox" required>
+                        <label for="sin-adeudos">Declaro que no tengo adeudos ni multas *</label>
+                    </div>
+
+                    <div>
+                        <input id="reglamento" name="reglamento" type="checkbox" required>
+                        <label for="reglamento">
+                            Acepto las condiciones de <a href="index.html#renovaciones">renovaciones del préstamo</a> *
+                        </label>
+                    </div>
+
+                    <div>
+                        <label for="observaciones">Observaciones</label>
+                        <textarea id="observaciones" name="observaciones" rows="4" maxlength="300"></textarea>
+                    </div>
+                </fieldset>
+
+                <button type="submit">Enviar solicitud</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <address>
+            Biblioteca Universitaria, Ciudad de Panamá, Panamá.
+        </address>
+
+        <p>
+            Última actualización:
+            <time datetime="2026-11-20">20 de noviembre de 2026</time>
+        </p>
+
+        <p>
+            <a href="#">Volver arriba</a>
+        </p>
+
+        <p>
+            Los datos y la información presentados en este sitio son ficticios
+            y tienen fines académicos.
+        </p>
+    </footer>
+</body>
+</html>
